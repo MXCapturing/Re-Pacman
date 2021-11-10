@@ -10,6 +10,7 @@ public class PacDot : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            //Give points to player
             GameManager.instance.points += point;
             GameManager.instance.pointText.text = GameManager.instance.points.ToString();
             Destroy(gameObject);
