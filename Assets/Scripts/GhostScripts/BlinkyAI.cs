@@ -9,12 +9,14 @@ public class BlinkyAI : MonoBehaviour
     public Transform[] scatterPoints;
     int scatterPointNumber = 0;
 
+    public Vector3 direction;
+
     public float speed;
     public float nextWaypointDistance;
     float distance;
 
-    Path path;
-    int currentWaypoint = 0;
+    public Path path;
+    public int currentWaypoint = 0;
     bool reachedEndOfPath = false;
 
     Seeker seeker;
@@ -44,12 +46,13 @@ public class BlinkyAI : MonoBehaviour
         {
             case GhostState.Chase:
                 seeker.StartPath(transform.position, target.position, OnPathComplete);
+                scatterPointNumber = 0;
                 break;
 
             case GhostState.Scatter:
                 seeker.StartPath(transform.position, scatterPoints[scatterPointNumber].position, OnPathComplete);
                 scatterPointNumber++;
-                if(scatterPointNumber >= scatterPoints.Length)
+                if (scatterPointNumber >= scatterPoints.Length)
                 {
                     scatterPointNumber = 0;
                 }
@@ -80,7 +83,6 @@ public class BlinkyAI : MonoBehaviour
                 reachedEndOfPath = false;
             }
 
-            //Vector2 direction = (path.vectorPath[currentWaypoint] - transform.position).normalized;
             float stepScatter = speed * Time.deltaTime;
 
             if (reachedEndOfPath)

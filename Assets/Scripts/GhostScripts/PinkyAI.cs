@@ -44,6 +44,7 @@ public class PinkyAI : MonoBehaviour
         {
             case GhostState.Chase:
                 seeker.StartPath(transform.position, target.position + (target.right * 4), OnPathComplete);
+                scatterPointNumber = 0;
                 break;
 
             case GhostState.Scatter:

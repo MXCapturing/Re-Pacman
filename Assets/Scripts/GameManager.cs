@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GhostState ghostState;
+    public GameObject pacman;
+    public GameObject blinky;
+    public GameObject pinky;
+    public GameObject inky;
 
     public int dotCount;
     public int points;
@@ -56,6 +60,14 @@ public class GameManager : MonoBehaviour
         ghostState = GhostState.Scatter;
         yield return new WaitForSeconds(7f);
         ghostState = GhostState.Chase;
+    }
+
+    public void DotCount()
+    {
+        if(dotCount == 30)
+        {
+            inky.GetComponent<InkyAI>().active = true;
+        }
     }
 
     // Update is called once per frame

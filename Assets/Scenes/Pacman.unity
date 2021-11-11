@@ -321,7 +321,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73ffded6f9a0f274282c127720641adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostState: 2
+  ghostState: 1
+  pacman: {fileID: 1951068888}
+  blinky: {fileID: 1989246064}
+  pinky: {fileID: 1835307031}
+  inky: {fileID: 904968449}
   dotCount: 0
   points: 0
   pointText: {fileID: 538912236}
@@ -1222,7 +1226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAABoIey56oZLcwIAAC0FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtzmzAQ/isenWsP4Bf01tqO00MST9xOLlyEWIzGQmL0iO1k/N8rCTDEnXLxeh/ffvvtwieiXNVAtJBbSfMnkQP6PkLORt9GffARzvgg+J5+QJfzRnNduiTsc16xpsL6Q1emRAVaUvKDH5hLDqzTcFoIWW3yA6yE0sq6C8wU2JAU2lVz6/ocobP9GSeu5GKtaOmsD2slwehqTQJcgxykxpPEP23BOJzMA/cs2rpxNFnEURTO49lmHCw9iOGE4aqG3E3UY0VxCzINfRq3s7YZbi4iGKOqJYr0pfZCvOKLkyGn2A7tmbncEuih1A5zWPhSFAp0q4jElzWVVrsGEf0UjaAVVseG0ztmxvVYzDydBvPpn/C4YVtIUT12bcPAtdAlJUdLkGClB4IP3euvvA0/YXbEGYO3Eviz2EpheG6DWhpXahRE6/7vbbJVCeTY+xuqd05T91J3++2262a4+uHPK0arzIUms8axZ8JL7Y8CpF3KL0vYn4xqIazXsfij4Dc+DG+rDTxQqbQNtVNyRy8TRrpU9GANJzwxeiUkBzkEqIFjpi87C6PvN3gX+3/VA3ZvUdu8jXUvx12Jd/f5QXAX2onTbVmqFKcnUOWL0Yxy6JV2gWer00pw3hzYcKSubG9kgcmg7GBo/vW0UAbzKQlJnMxwEk3nxXi5WGZZlE3jeJok00WI/O1RbufEbNcQbeWxW+M9OLd31n1cRluJa3/sucSnLf2oxJAg5YXYEwnAXxqIG3OQtot9I/NNTq1Ce9Cacr9w9JkiJsgR8vTWM/Wjbs5a4rRHSVFN34V2nhSt/OckRc59O+adhHcKJ9e8A7ui619QSwMEFAAACAgAAGgh7E/VF4ttAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFJSqqlxsmGyhaVJoqWRsWmarrmZeVKSUZKxhYWxpaWxmaFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAGgh7LnqhktzAgAALQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAGgh7E/VF4ttAAAAeAAAAAkAJAAAAAAAAAAAAAAAwAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB4AwAAAAA=
+    dataString: UEsDBBQAAAgIAABoIewkT3jVYwIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMziWDIR/QW0sS0kMSprSTiy+yvMYaZMkjyQGS4b93V5axS6cnlrdf7+2u/MmkdjUIb+zKyvzZ5MC+jhjZ7Muodz7BgW+N3sgP6GLeZO5LCuIh5if30iCeUJozFXgrxTe9VRQ8QbDRsjC2esi3sDTOO4QLrhygyxpP2RqhzxE74M94QSlHtKZ3ZH2gtZiMTmgK0B7sMDRGjpOrmxjaRjZaKF7VkBPtPmE6jwmzJIRpFBQjiLwwSkkX2TB/rIPan/xIWnPJUVloP7laULsS5Lb0VHaY+1oUDnxUbvnxXlqcUVuUfTft4Crudi2td64aanN7HRi1NZ//cY9bwoU11VPXNplQC19KsUOOgjs/GOwQvu+pJ2E4e652PFPwVoJ+MStrGp2j09uGUhsH0/v+71nZsgSx6/GW6gXY1P20uz12WyQNpyD+sFSyysIkr1tgo0yYdlg+WNzLDyQcTsPFEogSi98OfvGt61tG/FFa59ETRWpil5nGUiR7RIPmLhq/NFaDHd5gDZorf1xjGX+5wAvf/7MeOT2W2Dz6ujcQiQ7RPnwyuXCtzT5eGZVypdk/gytfG6+kHlQjxwvOaWm0bg9sqKlL2zS24GKQtm1k/vdpsQxuZiIR88U1X0xnN8X47vYuy6bZbD6fLRaz24SF25MahXK1bqnG+eDWdF9c4511H5HRyvI6HHtu+X4lPyozJCh1YTbCAujXtsSZOVjsgo8yf8glzmgD3ksdFs4+U6aM2EGennumQerDwVue9lVSVst34wlJ2TJ8NlJG8PmY1xbeJeypeVfsxE5/AFBLAwQUAAAICAAAaCHs0yKsx3MAAACEAAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGIE4pZkpIHa0UlKqqXGyYbKFpUmipZGxaZquuZl5UpJRkrGFhbGlpbGZoZKOQl5pTk4sUFdJZUGqX2JuKkRnQGJJRlpmXkpmXrqee1FmijvIApjqWgBQSwECLQAUAAAICAAAaCHsJE941WMCAAAVBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAaCHs0yKsx3MAAACEAAAACQAkAAAAAAAAAAAAAACwAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAG4DAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1250,7 +1254,39 @@ MonoBehaviour:
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors:
     - {r: 0, g: 0, b: 0, a: 0}
-  tagNames: []
+  tagNames:
+  - Basic Ground
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
@@ -1628,9 +1664,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 904968452}
+  - component: {fileID: 904968454}
+  - component: {fileID: 904968453}
   - component: {fileID: 904968451}
   - component: {fileID: 904968450}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Inky(Blue)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1692,13 +1730,63 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904968449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11, y: -0.5, z: 0}
+  m_LocalPosition: {x: -10.9, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1376698054}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &904968453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904968449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfbd4154146778d4f8b74fc0ee33f5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
+  target: {fileID: 1951068892}
+  scatterPoints:
+  - {fileID: 1255288245}
+  - {fileID: 568717754}
+  - {fileID: 288206927}
+  - {fileID: 60592914}
+  speed: 3.75
+  nextWaypointDistance: 0.1
+  blinkyAI: {fileID: 1989246068}
+--- !u!114 &904968454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904968449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
 --- !u!4 &910835499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7318591532089472273, guid: 22eae360c11c8ed4094c29f108c4cd71, type: 3}
@@ -9056,7 +9144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1376698054}
   - component: {fileID: 1376698055}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 409-4096030_transparent-pacman-sprite-png-pacman-sprite-sheet-png_84
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9116,7 +9204,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 5186472031748904472, guid: bab87f984e7d71840b006b6310201a59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10291,8 +10379,10 @@ MonoBehaviour:
   - {fileID: 1631025522}
   - {fileID: 1312113747}
   - {fileID: 931983160}
+  direction: {x: 0, y: 0, z: 0}
   speed: 4
   nextWaypointDistance: 0.1
+  currentWaypoint: 0
 --- !u!50 &1989246069
 Rigidbody2D:
   serializedVersion: 4
