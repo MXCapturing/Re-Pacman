@@ -7,7 +7,8 @@ public enum GhostState
 {
     Scatter = 0,
     Chase = 1,
-    Frightened = 2
+    Frightened = 2,
+    Respawning = 3
 }
 
 public class GameManager : MonoBehaviour
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject blinky;
     public GameObject pinky;
     public GameObject inky;
+    public GameObject clyde;
 
     public int dotCount;
     public int points;
@@ -67,6 +69,10 @@ public class GameManager : MonoBehaviour
         if(dotCount == 30)
         {
             inky.GetComponent<InkyAI>().active = true;
+        }
+        if(dotCount == 80)
+        {
+            clyde.GetComponent<ClydeAI>().active = true;
         }
     }
 
