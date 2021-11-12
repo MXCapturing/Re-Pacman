@@ -31,7 +31,7 @@ public class InkyAI : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (GameManager.instance.ghostState == GhostState.Chase)
+        if (GameManager.instance.ghostState == GhostState.Chase || GameManager.instance.ghostState == GhostState.Frightened)
         {
             if (collision.CompareTag("Intersections"))
             {
@@ -56,6 +56,11 @@ public class InkyAI : MonoBehaviour
                 {
                     scatterPointNumber = 0;
                 }
+                break;
+
+            case GhostState.Frightened:
+                Vector3 fleeDir = transform.position - target.position;
+                seeker.StartPath(transform.position, fleeDir, OnPathComplete);
                 break;
         }
     }

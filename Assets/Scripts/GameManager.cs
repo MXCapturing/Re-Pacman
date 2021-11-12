@@ -42,10 +42,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         pointText.text = "0";
-        StartCoroutine(GhostSwitchTimer());
+        //StartCoroutine(GhostSwitchTimer());
     }
 
-    IEnumerator GhostSwitchTimer()
+    /*IEnumerator GhostSwitchTimer()
     {
         ghostState = GhostState.Scatter;
         yield return new WaitForSeconds(10f);
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         ghostState = GhostState.Scatter;
         yield return new WaitForSeconds(7f);
         ghostState = GhostState.Chase;
-    }
+    }*/
 
     public void DotCount()
     {
