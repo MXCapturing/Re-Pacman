@@ -12,9 +12,7 @@ public class PacDot : MonoBehaviour
         {
             //Give points to player
             GameManager.instance.dotCount++;
-            GameManager.instance.points += point;
-            GameManager.instance.DotCount();
-            GameManager.instance.pointText.text = GameManager.instance.points.ToString();
+            GameManager.instance.scoreText.text = GameManager.instance.score.ToString();
             Destroy(gameObject);
         }
     }

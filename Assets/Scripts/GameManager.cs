@@ -3,28 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public enum GhostState
-{
-    Scatter = 0,
-    Chase = 1,
-    Frightened = 2,
-    Respawning = 3
-}
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public GhostState ghostState;
+    public GameObject[] ghosts;
     public GameObject pacman;
-    public GameObject blinky;
-    public GameObject pinky;
-    public GameObject inky;
-    public GameObject clyde;
+    public Transform pellets;
 
     public int dotCount;
-    public int points;
-    public TMP_Text pointText;
+    public int score { get; private set; }
+    public int lives { get; private set; }
+    public TMP_Text scoreText;
 
     private void Awake()
     {
@@ -41,44 +31,81 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pointText.text = "0";
-        //StartCoroutine(GhostSwitchTimer());
+        NewGame();
     }
 
-    /*IEnumerator GhostSwitchTimer()
+    private void Update()
     {
-        ghostState = GhostState.Scatter;
-        yield return new WaitForSeconds(10f);
-        ghostState = GhostState.Chase;
-        yield return new WaitForSeconds(20f);
-        ghostState = GhostState.Scatter;
-        yield return new WaitForSeconds(10f);
-        ghostState = GhostState.Chase;
-        yield return new WaitForSeconds(20f);
-        ghostState = GhostState.Scatter;
-        yield return new WaitForSeconds(7f);
-        ghostState = GhostState.Chase;
-        yield return new WaitForSeconds(20f);
-        ghostState = GhostState.Scatter;
-        yield return new WaitForSeconds(7f);
-        ghostState = GhostState.Chase;
-    }*/
-
-    public void DotCount()
-    {
-        if(dotCount == 30)
+        if(lives <= 0 && Input.anyKeyDown)
         {
-            inky.GetComponent<InkyAI>().active = true;
-        }
-        if(dotCount == 80)
-        {
-            clyde.GetComponent<ClydeAI>().active = true;
+            NewGame();
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void NewGame()
     {
-        
+        SetScore(0);
+        SetLives(3);
+        NewRound();
+    }
+
+    void NewRound()
+    {
+        foreach(Transform pellet in this.pellets)
+        {
+            pellet.gameObject.SetActive(true);
+        }
+
+        ResetState();
+    }
+
+    void ResetState()
+    {
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            this.ghosts[i].gameObject.SetActive(true);
+        }
+
+        this.pacman.gameObject.SetActive(true);
+    }
+
+    void GameOver()
+    {
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            this.ghosts[i].gameObject.SetActive(false);
+        }
+
+        this.pacman.gameObject.SetActive(false);
+    }
+
+    void SetScore(int score)
+    {
+        this.score = score;
+    }
+
+    void SetLives(int lives)
+    {
+        this.lives = lives;
+    }
+
+    public void GhostEaten(Ghost ghost)
+    {
+        SetScore(this.score + ghost.points);
+    }
+
+    public void PacmanEaten()
+    {
+        pacman.gameObject.SetActive(false);
+
+        SetLives(this.lives - 1);
+        if(this.lives > 0)
+        {
+            Invoke(nameof(ResetState), 3f);
+        }
+        else
+        {
+            GameOver();
+        }
     }
 }
