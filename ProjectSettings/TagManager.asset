@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - GhostGates
+  - Intersections
   layers:
   - Default
   - TransparentFX
@@ -13,11 +14,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Obstacle
+  - Pac-man
+  - Pellet
+  - Node
+  - Ghost
   - 
   - 
   - 
