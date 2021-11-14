@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Warppoints : MonoBehaviour
 {
-    public Vector3 warpPoint;
+    public Transform warpPoint;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            collision.gameObject.transform.position = warpPoint;
-        }
+        Vector3 position = collision.transform.position;
+        position.x = warpPoint.position.x;
+        position.y = warpPoint.position.y;
+
+        collision.transform.position = position;
     }
 }

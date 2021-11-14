@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7318591532089472272}
   - component: {fileID: 2931074928946145300}
   - component: {fileID: 8540746748437547787}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Pellet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c247b171b54aab45a1d1dea0eddcd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: 100
+  point: 10
 --- !u!61 &8540746748437547787
 BoxCollider2D:
   m_ObjectHideFlags: 0

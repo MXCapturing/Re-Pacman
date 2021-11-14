@@ -6,14 +6,16 @@ public class PacDot : MonoBehaviour
 {
     public int point;
 
+    protected virtual void Eat()
+    {
+        FindObjectOfType<GameManager>().PelletEaten(this);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            //Give points to player
-            GameManager.instance.dotCount++;
-            GameManager.instance.scoreText.text = GameManager.instance.score.ToString();
-            Destroy(gameObject);
+            Eat();
         }
     }
 }
